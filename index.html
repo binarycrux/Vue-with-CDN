@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Project</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div id="app" class="text-center mt-2">
+      <h2 class="text-[#000223] font-bold">{{ message }}</h2>
+      <button
+        @click="btnClick"
+        class="bg-[#ffa000] px-4 pb-[2px] rounded-[1rem] mt-4"
+      >
+        {{ btnText}}
+      </button>
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            message: "Hello from Vue!",
+            btnText: "Click Me",
+          };
+        },
+        methods: {
+          btnClick() {
+            let status = true;
+            if (status) {
+              console.log("Button was clicked!");
+              this.message = "Button was clicked!";
+              this.btnText = "Unclick";
+            }
+          },
+        },
+      });
+
+      app.mount("#app");
+    </script>
+  </body>
+</html>
